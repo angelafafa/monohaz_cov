@@ -2,7 +2,6 @@
 A repository for the paper "monotone harzard ratio"
 
 [![Journal](https://img.shields.io/badge/RA--L2023-Accepted-success)](https://ieeexplore.ieee.org/iel7/7083369/7339444/10251585.pdf)
-
 [![Arxiv](http://img.shields.io/badge/arxiv-cs:2309.05131-B31B1B.svg)](https://arxiv.org/abs/2309.05131.pdf)
 
 > A better framework to compute monotone harzard ratio.
