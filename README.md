@@ -12,12 +12,12 @@ Packages (steps 1 and 2 are for Python; step 3 is for R):
 3. survival, boot, and ggplot2: 'install.packages("survival/boot/ggplot2")'
 
 ## Data
-Download npz and csv data or run .ipynb and .R in folder 'R/' and/or 'Python/' 
+Download .npz and .csv data or run .ipynb and .R in folder 'R/' and/or 'Python/' 
 
 
 ## Simulation summaries
 ### Figure 1, Table 2 and 3 (Setting 1-4)
-Run the in folder 'Python/'
+Run 'monotone_hazard.ipynb' in folder 'Python/'.
 ```python
 #(a) Setting 1
 main(a=1, x_time=693.1472,n_trials=1000,n_samples_old=1000,method_i = 4,trun_scale=250)
