@@ -2,9 +2,10 @@ library(survival)
 library(ggplot2)
 #load data generated for each trial
 df_concat=read.csv("~/Downloads/df_concat1.csv")
+#https://raw.githubusercontent.com/angelafafa/monohaz_cov/main/df2.csv
 df_concat$delta=ifelse(df_concat$delta=="True",1,0)
 #average survival estimates at median survival calculated in python
-result_df=read.csv("~/Downloads/result_df1.csv")
+result_df=read.csv("https://raw.githubusercontent.com/angelafafa/monohaz_cov/main/R/result_df.csv")
 surv.est.km=c()
 mean.km=c()
 for(i in 1:100){
