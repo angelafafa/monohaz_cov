@@ -32,12 +32,17 @@ Packages (steps 1 and 2 suffice for just using our STL Library (see [tutorial](t
 Download all the pretrained models `exps_cyclf.zip` and necessary data `walker.zip` from [Google Drive](https://drive.google.com/drive/folders/101wBUH-M9y-tbCQ_HE_PdRNEswRrcVha?usp=sharing) and extract them in `exps_cyclf` and `walker` under the project directory.
 
 
-## Main evaluation experiments
-### Car experiment (figure 4 in our paper)
+## Simulation (Setting 1-4)
+### Figure 1
 ```shell
-# (from package directory)
-cd car
-python car_planner.py --exp_name CAR_25X --gpus 0 --dt 0.01 --nt 100 --num_samples 10000 --joint_pretrained_path g0128-111623_JOI_ROA_U12_SA_grow --net_pretrained_path g0128-125740_EST_grow --mono_actor_pretrained_path g0511-000521_JOI_ROA_U12_SA_grow_singleclf_one --u_limit 8 8 --allow_factor 1.0 --cap_seg 16 --num_workers 1 --skip_viz 100 --use_sample --lqr_nt 100 --clf_nt 120 --use_middle --new_ring_seg 10 --race --race_angle 30 --num_trials 25 --methods mbpo mbpo mbpo rl-sac rl-sac rl-sac rl-ppo rl-ppo rl-ppo rl-ddpg rl-ddpg rl-ddpg mpc lqr clf ours ours-d --auto_rl --mbpo_paths g1124-015808_car_mbpo_1007 g1124-015809_car_mbpo_1008 g1124-015811_car_mbpo_1009
+#(a)
+main(a=1, x_time=693.1472,n_trials=1000,n_samples_old=1000,method_i = 4,trun_scale=250)
+#(b)
+#main(a=2, x_time=832.5546,n_trials=1000,n_samples_old=1000,method_i = 4,trun_scale=450)
+#(c)
+#main(a=4, x_time=912.4443,n_trials=10,n_samples_old=1000,method_i = 4,trun_scale=500)
+#(d)
+#main(a=6, x_time=940.7428,n_trials=1000,n_samples_old=1000,method_i = 4,trun_scale=500)
 ```
 
 ### Pogo experiment (figure 6)
