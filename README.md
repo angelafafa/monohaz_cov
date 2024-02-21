@@ -47,6 +47,7 @@ print("Summary:   bias: %.4f| %.4f| %.4f   variance: %.4f| %.4f| %.4f avg_n:%4d"
             np.std(cox_med,ddof=1),np.std(km_med,ddof=1),np.mean(sample_size)
         ))
 ```
+Bias and MCSE (S5) of KM
 ```r
 #Bias (S5) of KM in table 2
 mean(surv.median.est.km)
@@ -54,10 +55,10 @@ mean(surv.median.est.km)
 sqrt(sum((surv.median.est.km-mean(surv.median.est.km))^2)/(999))
 ```
 
-### Figure 2
+### Figure 2 (Setting 5)
 We use python to generate data "df_concat_S5.csv" (later read in R to calculate KM summary) and "result_df.csv" (average survival probability at median ready for making a plot)
 Run 'coxfail_fig2.R' in folder 'R/' to create figure 2.
 
 
-### Figure 3
+### Figure 3 (Channing House)
 Run 'channing_fig3.R' in folder 'R/' to create figure 3.
