@@ -29,16 +29,18 @@ main(a=1, x_time=693.1472,n_trials=1000,n_samples_old=1000,method_i = 4,trun_sca
 #main(a=6, x_time=940.7428,n_trials=1000,n_samples_old=1000,method_i = 4,trun_scale=500)
 ```
 ### Table 2 and 3 (Setting 5)
-Status printed after each simulation
+Run 'monotone_hazard.ipynb' in folder 'Python/' with modification listed below.
+
+Delete KM related statistics in the original print statement and run the following code instead.
 ```python
 print("Trials:%04d/%04d  dt:%.3fs  elapsed:%.3fs  ETA:%.3fs  | OUTPUT=wu:%.4f tsai:%.4f cox:%.4f| min_x:%.4f min_t:%.4f  valid_n:%4d"%(i, n_trials, dt, elapsed, eta, surv_median_est[i], surv_median_tsai[i],cox_med[i],min_x, min_t, n_samples))
 ```
-Below needs to be commented out to avoid calculating KM statistics directly from Python
+Below needs to be commented out to avoid calculating KM related statistics directly from Python
 ```python
 kmf.fit(durations=y1[cov1==0], event_observed=delta[cov1==0], entry=truncation[cov1==0])
 km_med[i]=np.mean(kmf.survival_function_at_times(x_time))
 ```
-Bias and MCSE (S5) of methods other than KM
+Code that prints average bias and MCSE (S5) of methods other than KM
 ```python
 print("Summary:   bias: %.4f| %.4f| %.4f   variance: %.4f| %.4f| %.4f avg_n:%4d"%(
             np.mean(surv_median_est)-0.5,np.mean(surv_median_tsai)-0.5,
@@ -47,7 +49,7 @@ print("Summary:   bias: %.4f| %.4f| %.4f   variance: %.4f| %.4f| %.4f avg_n:%4d"
             np.std(cox_med,ddof=1),np.std(km_med,ddof=1),np.mean(sample_size)
         ))
 ```
-Bias and MCSE (S5) of KM
+Code that prints average bias and MCSE (S5) of KM
 ```r
 #Bias (S5) of KM in table 2
 mean(surv.median.est.km)
@@ -56,8 +58,7 @@ sqrt(sum((surv.median.est.km-mean(surv.median.est.km))^2)/(999))
 ```
 
 ### Figure 2 (Setting 5)
-We use python to generate data "df_concat_S5.csv" (later read in R to calculate KM summary) and "result_df.csv" (average survival probability at median ready for making a plot)
-Run 'coxfail_fig2.R' in folder 'R/' to create figure 2.
+The python program 'monotone_hazard.ipynb' generates data "df_concat_S5.csv" (later read in R to calculate KM summary statistics) and "result_df.csv" (average survival probability at median survival methods other than KM). Run 'coxfail_fig2.R' in folder 'R/' which adds KM summary statistics to the original "result_df.csv" to create figure 2.
 
 
 ### Figure 3 (Channing House)
